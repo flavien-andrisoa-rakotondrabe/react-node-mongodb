@@ -159,7 +159,7 @@ export const createCampaign = async (
 
       const relativePath = saveFileLocally(
         req.file,
-        'files/campaign',
+        'files/images/campaigns',
         fileName,
       );
 
