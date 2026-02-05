@@ -24,7 +24,10 @@ export const getAll = async (
   >,
 ): Promise<void> => {
   try {
-    const campaignsRaw = await CampaignModel.find().populate('files');
+    const campaignsRaw = await CampaignModel.find()
+      .populate('files')
+      .sort({ updatedAt: -1 });
+
     const campaigns = campaignsRaw.map((c) =>
       c.toObject(),
     ) as unknown as CampaignDataInterface[];

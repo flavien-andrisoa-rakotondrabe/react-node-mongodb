@@ -40,4 +40,4 @@ API REST robuste pour la gestion de campagnes publicitaires, incluant l'upload d
 - src/controllers/ : Logique métier
 - src/routes/ : Définition des points d'accès API
 - src/models/ : Schémas de données
-- src/utils/ : Utilitaires (Upload, Logger, Helpers)
+- src/lib/ : Utilitaires (Upload, Logger, Helpers)
