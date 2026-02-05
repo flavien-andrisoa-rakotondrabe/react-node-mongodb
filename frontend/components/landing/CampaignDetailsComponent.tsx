@@ -100,7 +100,7 @@ export default function CampaignDetailsComponent({
               <div className="w-full h-56 rounded-t-xl">
                 <Image
                   src={
-                    actualCampaign
+                    actualCampaign && actualCampaign.files.length
                       ? actualCampaign.files[0].url
                       : '/campaign.png'
                   }

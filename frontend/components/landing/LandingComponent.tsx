@@ -52,7 +52,7 @@ export default function LandingComponent() {
     <div className="relative w-full min-h-dvh">
       <div className="w-full p-8 flex flex-col justify-center items-center">
         <div className="w-full flex justify-between items-center gap-6 pb-4 border-b-2 border-black/5">
-          <h1 className="text-4xl font-semibold">Toutes les campages</h1>
+          <h1 className="text-4xl font-semibold">Toutes les campagnes</h1>
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
               <Button className="cursor-pointer inline-flex items-center gap-1 ps-3">
