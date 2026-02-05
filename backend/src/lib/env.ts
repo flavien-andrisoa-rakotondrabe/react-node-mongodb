@@ -2,7 +2,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const backendPort = process.env.BACKEND_PORT as string;
-const frontendUri = process.env.FRONTEND_URI as string;
+const dbUri = process.env.DATABASE_URI!;
+const backendPort = process.env.BACKEND_PORT!;
+const frontendUri = process.env.FRONTEND_URI!;
 
-export { backendPort, frontendUri };
+export { dbUri, backendPort, frontendUri };

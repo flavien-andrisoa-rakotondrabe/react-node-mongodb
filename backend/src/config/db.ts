@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
+import { dbUri } from '@/lib/env';
 import { logger } from '@/lib/winston';
 
 export const connectDB = async (): Promise<void> => {
   try {
-    const dbUri = process.env.DATABASE_URI!;
-
     await mongoose.connect(dbUri, {
       autoIndex: true,
       connectTimeoutMS: 10000,
