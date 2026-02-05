@@ -1,10 +1,9 @@
-import { Types } from 'mongoose';
 import { FileInterface } from '@/types/file.type';
 
 export type CampaignStatusType = 'active' | 'paused' | 'finished';
 
 export interface CampaignInterface {
-  _id: Types.ObjectId;
+  _id: string;
   name: string;
   advertiser: string;
   image: string;

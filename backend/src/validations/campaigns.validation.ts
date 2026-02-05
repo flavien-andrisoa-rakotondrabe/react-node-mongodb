@@ -1,5 +1,27 @@
-import { body } from 'express-validator';
-import { imageMimeTypes } from '@/utils/constants';
+import { body, param } from 'express-validator';
+import { imageMimeTypes } from '@/lib/constants';
+
+export const getCampaignByIdValidation = [
+  param('campaignId')
+    .notEmpty()
+    .withMessage('campaignId requis')
+    .isMongoId()
+    .withMessage('campaignId invalide'),
+];
+
+export const updateCampaignStatusByIdValidation = [
+  param('campaignId')
+    .notEmpty()
+    .withMessage('campaignId requis')
+    .isMongoId()
+    .withMessage('campaignId invalide'),
+  body('status')
+    .trim()
+    .notEmpty()
+    .withMessage('Le statut est requis')
+    .isIn(['active', 'paused', 'finished'])
+    .withMessage('Le statut doit être : active, paused ou finished'),
+];
 
 export const createCampaignValidation = [
   body('name').trim().notEmpty().withMessage('name required'),
@@ -9,13 +31,15 @@ export const createCampaignValidation = [
     .trim()
     .notEmpty()
     .withMessage('startDate required')
-    .isDate({ format: 'YYYY-MM-DD', strictMode: true })
+    .isISO8601()
+    .withMessage('Format ISO8601 required')
     .toDate(),
   body('endDate')
     .trim()
     .notEmpty()
     .withMessage('endDate required')
-    .isDate({ format: 'YYYY-MM-DD', strictMode: true })
+    .isISO8601()
+    .withMessage('Format ISO8601 required')
     .toDate()
     .custom((value, { req }) => {
       if (new Date(value) <= new Date(req.body.startDate)) {

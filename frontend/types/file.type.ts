@@ -1,11 +1,9 @@
-import { Types } from 'mongoose';
-
 export interface FileInterface {
-  _id: Types.ObjectId;
+  _id: string;
   name: string;
   originalName: string;
   extension: string;
-  campaignId: Types.ObjectId | null;
+  campaignId: string | null;
   url: string;
   width: number | null;
   height: number | null;

@@ -25,6 +25,7 @@
     "helmet": "^8.1.0",
     "mongoose": "^9.1.6",
     "multer": "^2.0.2",
+    "sharp": "^0.34.5",
     "tsconfig-paths": "^4.2.0",
     "winston": "^3.17.0"
   },

@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
-import { CampaignStatusType } from '@/types/campaign.type';
+import { CampaignInterface } from '@/types/campaign.type';
 
-const campaignSchema = new Schema<CampaignStatusType>(
+const campaignSchema = new Schema<CampaignInterface>(
   {
     name: { type: String, required: true },
     advertiser: { type: String, required: true },
@@ -16,10 +16,21 @@ const campaignSchema = new Schema<CampaignStatusType>(
     impressions: { type: Number, default: 0 },
     clicks: { type: Number, default: 0 },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  },
 );
 
-export const CampaignModel = model<CampaignStatusType>(
+campaignSchema.virtual('files', {
+  ref: 'File',
+  localField: '_id',
+  foreignField: 'campaignId',
+  justOne: false,
+});
+
+export const CampaignModel = model<CampaignInterface>(
   'Campaign',
   campaignSchema,
 );

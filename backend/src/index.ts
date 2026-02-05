@@ -8,11 +8,11 @@ import compression from 'compression';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
 import rateLimit from 'express-rate-limit';
-import campaignRoutes from '@/routes/campaign.route';
+import campaignsRoutes from '@/routes/campaigns.route';
 
 import { connectDB } from '@/config/db';
-import { logger } from '@/utils/winston';
-import { frontendUri, backendPort } from '@/utils/env';
+import { logger } from '@/lib/winston';
+import { frontendUri, backendPort } from '@/lib/env';
 
 dotenv.config();
 const app = express();
@@ -53,7 +53,7 @@ app.use(
 
 const server = http.createServer(app);
 
-app.use('/api/campaign', campaignRoutes);
+app.use('/api/campaigns', campaignsRoutes);
 
 const start = async () => {
   await connectDB();
