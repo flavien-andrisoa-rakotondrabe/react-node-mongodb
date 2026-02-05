@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { upload } from '@/lib/multer';
+import { upload } from '@/utils/multer';
 
 import { createCampaign } from '@/controllers/campaign.controller';
 import { createCampaignValidation } from '@/validations/campaign.validation';
