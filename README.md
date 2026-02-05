@@ -67,7 +67,6 @@ Interface utilisateur moderne pour la gestion et le monitoring de campagnes publ
 - **Formulaires** : React Hook Form & Zod
 - **UI & Design** : Tailwind CSS & Shadcn/ui
 - **Requêtes API** : Fetch
-- **Optimisation Image** : Sharp (via Next/Image)
 
 ---
 
